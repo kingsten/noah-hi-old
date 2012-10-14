@@ -278,6 +278,13 @@ public class NoahHi implements Runnable {
         EntityUtils.consume(pickRes.getEntity());
     }
 
+    /**
+     * 接受加好友请求
+     * @param userName
+     * @param tid
+     * @param comment
+     * @throws IOException
+     */
     public void addFriend(String userName, Integer tid, String comment) throws IOException {
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.put("username", userName);
@@ -315,6 +322,7 @@ public class NoahHi implements Runnable {
             System.out.println("validateStr : " + validate.toString());
             if (!validate.containsKey("v_code")) {
                 return "";
+
             }
             String validateStr = validate.getString("v_url") + "," + validate.getString("v_period") + "," + validate.getString("v_time") + "," + validate.getString("v_code");
             return validateStr;
